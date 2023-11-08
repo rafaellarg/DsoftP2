@@ -1,3 +1,5 @@
+import random
+
 def filtra(palavras, n):
     lista_min = []
     for palavra in palavras:
@@ -19,3 +21,42 @@ def filtra(palavras, n):
         if len(i) == n:
             lista_n.append(i)
     return lista_n
+
+palavras = [
+    'uivo', 'vimo', 'rife',
+    'abas', 'clas', 'mujo',
+    'pata', 'seta', 'veja'
+]
+
+def inicializa(palavras):
+    dic = {}
+    for palavra in palavras:
+        dic['n'] = len(palavra)
+        dic['tentativas'] = len(palavra) +1
+
+    dic['sorteada'] = random.choice(palavras)
+    dic ['especuladas'] = []
+
+    return dic
+
+sorteada = 'escolhe'
+especulada = 'sacolas'
+
+def inidica_posicao(sorteada, especulada):
+    lista = []
+    if len(sorteada) == len(especulada):
+        for i in range(len(sorteada)):
+            if sorteada[i] == especulada[i]:
+                lista.append(0)
+            if especulada[i] not in sorteada:
+                lista.append(2)
+            if especulada[i] in sorteada and especulada[i] != sorteada[i]:
+                lista.append(1)
+        return lista
+    else:
+        return []
+    
+print(inidica_posicao(sorteada, especulada))
+    
+
+
