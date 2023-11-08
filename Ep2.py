@@ -23,7 +23,31 @@ print(" ===========================\n"
       f"  - Os acentos são ignorados;\n"
       f"  - As palavras podem possuir letras repetidas.")
 
+lista = filtra(palavras, 5)
 
+
+dic = inicializa(lista)
+sorteada = dic['sorteada']
+tentativas = dic['tentativas']
+
+
+
+for i in range(tentativas + 1)[::-1]:
+      print("Você tem", i , "tentativas")
+      if i == 0:
+            break
+
+      especulada = input('Digite seu palpite: ')
+      if len(especulada) != 5:
+            print("Você tem", i , "tentativas")
+            especulada = input('Digite seu palpite: ')
+
+      lista_posicao = inidica_posicao(sorteada, especulada)
+      s = ''
+      for i in range(len(lista_posicao)):
+            if lista_posicao[i] == 1:
+                  s = f'{s}{cor_azul}{especulada[i]}{reset_cor}'
+      print(s)
 
 
 
