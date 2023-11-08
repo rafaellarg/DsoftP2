@@ -21,6 +21,25 @@ def filtra(palavras):
     return lista_n
 
 
+def inicializa(lista_n):
+    dic = {}
+    for palavra in lista_n:
+        dic['n'] = len(palavra)
+        dic['tentativas'] = len(palavra) +1
+
+    X = dic['sorteada'] = random.choice(lista_n)
+    chute = input("digite a palavra: ")
+    dic ['especuladas'].append(chute)
+
+    lista = []
+    
+
+
+
+    return dic
+
+
+
 from colorama import Fore, Style
 
 def inidica_posicao(sorteada, especulada):
@@ -36,6 +55,5 @@ def inidica_posicao(sorteada, especulada):
         return lista
     else:
         return []
-
 
 
