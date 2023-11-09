@@ -45,8 +45,12 @@ for i in range(tentativas + 1)[::-1]:
       lista_posicao = inidica_posicao(sorteada, especulada)
       s = ''
       for i in range(len(lista_posicao)):
-            if lista_posicao[i] == 1:
+            if lista_posicao[i] == 0:
                   s = f'{s}{cor_azul}{especulada[i]}{reset_cor}'
+            if lista_posicao[i] == 1:
+                  s = f'{s}{cor_amarela}{especulada[i]}{reset_cor}'
+            if lista_posicao[i] == 2:
+                  s = f'{s}{cor_cinza}{especulada[i]}{reset_cor}'
       print(s)
 
 
