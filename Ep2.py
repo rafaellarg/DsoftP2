@@ -41,6 +41,9 @@ for i in range(tentativas + 1)[::-1]:
       if len(especulada) != 5:
             print("Você tem", i , "tentativas")
             especulada = input('Digite seu palpite: ')
+      if especulada not in lista:
+            print("palavra desconhecida")
+            print("Você tem", i , "tentativas")
 
       lista_posicao = inidica_posicao(sorteada, especulada)
       s = ''
