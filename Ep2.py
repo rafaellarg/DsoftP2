@@ -44,6 +44,9 @@ for i in range(tentativas + 1)[::-1]:
       if especulada not in lista:
             print("palavra desconhecida")
             print("Você tem", i , "tentativas")
+      if especulada == sorteada:
+            print("parabens! você acertou!")
+            break
 
       lista_posicao = inidica_posicao(sorteada, especulada)
       s = ''
@@ -55,10 +58,4 @@ for i in range(tentativas + 1)[::-1]:
             if lista_posicao[i] == 2:
                   s = f'{s}{cor_cinza}{especulada[i]}{reset_cor}'
       print(s)
-
-
-
-    
-
-
-
+      print(sorteada)
