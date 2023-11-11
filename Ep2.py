@@ -65,7 +65,6 @@ for i in range(tentativas + 1)[::-1]:
                         s = f'{s}{cor_cinza}{especulada[i]}{reset_cor}'
 
             print(s)
-            print(sorteada)
 
       else:
             print(" ")
@@ -84,9 +83,11 @@ for i in range(tentativas + 1)[::-1]:
                         s = f'{s}{cor_cinza}{especulada[i]}{reset_cor}'
 
             print(s)
+            print(" --- --- --- --- --- \n|  |  |  |  |  |\n --- --- --- --- --- \n|  |  |  |  |  |\n --- --- --- --- --- \n|  |  |  |  |  |\n --- --- --- --- --- \n|  |  |  |  |  |\n --- --- --- --- --- \n|  |  |  |  |  |\n --- --- --- --- --- \n|  |  |  |  |  |")
 
       
       
+
 
       
 
