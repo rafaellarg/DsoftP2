@@ -52,6 +52,7 @@ for i in range(tentativas + 1)[::-1]:
                   especulada = input('Digite seu palpite: ')
             if especulada == sorteada:
                   print("parabens! Voce acertou!")
+                  break
 
             lista_posicao = inidica_posicao(sorteada, especulada)
             s = ''
@@ -64,6 +65,7 @@ for i in range(tentativas + 1)[::-1]:
                         s = f'{s}{cor_cinza}{especulada[i]}{reset_cor}'
 
             print(s)
+            print(sorteada)
 
       else:
             print(" ")
