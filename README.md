@@ -1,1 +1,1 @@
-# DsoftP2
+# Esse repositório foi criado para armazenar o projeto EP2 da disciplina de Design de Software, feito por Rafaella Generoso e Anita Pontalti
