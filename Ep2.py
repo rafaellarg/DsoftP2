@@ -1,7 +1,6 @@
 import random
 from arq_palavras import palavras
-from funcoes import filtra, inicializa, inidica_posicao
-
+from funcoes import filtra, inicializa, inidica_posicao, exibir_quadriculado
 
 cor_azul = "\033[34m"
 cor_amarela = "\033[33m"
@@ -24,76 +23,58 @@ print(" ===========================\n"
       f"  - As palavras podem possuir letras repetidas.")
 
 while True:
-      lista = filtra(palavras, 5)
-      dic = inicializa(lista)
-      sorteada = dic['sorteada']
-      tentativas = dic['tentativas']
-      print(" ")
-      print("Sorteando uma palavra...")
-      break
+    lista = filtra(palavras, 5)
+    dic = inicializa(lista)
+    sorteada = dic['sorteada']
+    tentativas = dic['tentativas']
+    print(" ")
+    print("Sorteando uma palavra...")
+    break
 
-print("Já tenho uma palavra, tente adivinha-la")
+print("Já tenho uma palavra, tente adivinhar!")
 
-print(" ")
-
-
-
-
+quadriculado = [[' ' for _ in range(5)] for _ in range(6)]
 
 for i in range(tentativas + 1)[::-1]:
-      print("Você tem", i , "tentativas")
-      if i == 0:
-            break
-      
-      especulada = input('Digite seu palpite: ')
-      if especulada in lista:
-            if len(especulada) != 5:
-                  print("Você tem", i , "tentativas")
-                  especulada = input('Digite seu palpite: ')
-            if especulada == sorteada:
-                  print("parabens! Voce acertou!")
-                  break
+    if i != 0:
+        print("Você tem", i, "tentativas")
+    if i == 0:
+        print("Você perdeu, a palavra era:", sorteada)
+        break
 
-            lista_posicao = inidica_posicao(sorteada, especulada)
-            s = ''
-            for i in range(len(lista_posicao)):
-                  if lista_posicao[i] == 0:
-                        s = f'{s}{cor_azul}{especulada[i]}{reset_cor}'
-                  if lista_posicao[i] == 1:
-                        s = f'{s}{cor_amarela}{especulada[i]}{reset_cor}'
-                  if lista_posicao[i] == 2:
-                        s = f'{s}{cor_cinza}{especulada[i]}{reset_cor}'
-
-            print(s)
-
-      else:
-            print(" ")
-            print("palavra desconhecida")
-            print("Você tem", i , "tentativas")
+    especulada = input('Digite seu palpite: ')
+    if especulada in lista:
+        if len(especulada) != 5:
+            print("Você tem", i, "tentativas")
             especulada = input('Digite seu palpite: ')
+        if especulada == sorteada:
+            print("Parabéns! Você acertou!")
+            break
 
-            lista_posicao = inidica_posicao(sorteada, especulada)
-            s = ''
-            for i in range(len(lista_posicao)):
-                  if lista_posicao[i] == 0:
-                        s = f'{s}{cor_azul}{especulada[i]}{reset_cor}'
-                  if lista_posicao[i] == 1:
-                        s = f'{s}{cor_amarela}{especulada[i]}{reset_cor}'
-                  if lista_posicao[i] == 2:
-                        s = f'{s}{cor_cinza}{especulada[i]}{reset_cor}'
+        lista_posicao = inidica_posicao(sorteada, especulada)
+        for j in range(len(lista_posicao)):
+            if lista_posicao[j] == 0:
+                quadriculado[tentativas - i][j] = f'{cor_azul}{especulada[j]}{reset_cor}'
+            elif lista_posicao[j] == 1:
+                quadriculado[tentativas - i][j] = f'{cor_amarela}{especulada[j]}{reset_cor}'
+            elif lista_posicao[j] == 2:
+                quadriculado[tentativas - i][j] = f'{cor_cinza}{especulada[j]}{reset_cor}'
 
-            print(s)
-            print(" --- --- --- --- --- \n|  |  |  |  |  |\n --- --- --- --- --- \n|  |  |  |  |  |\n --- --- --- --- --- \n|  |  |  |  |  |\n --- --- --- --- --- \n|  |  |  |  |  |\n --- --- --- --- --- \n|  |  |  |  |  |\n --- --- --- --- --- \n|  |  |  |  |  |")
+        exibir_quadriculado(quadriculado)
 
-      
-      
+    else:
+        print(" ")
+        print("Palavra desconhecida")
+        print("Você tem", i, "tentativas")
+        especulada = input('Digite seu palpite: ')
 
+        lista_posicao = inidica_posicao(sorteada, especulada)
+        for j in range(len(lista_posicao)):
+            if lista_posicao[j] == 0:
+                quadriculado[tentativas - i][j] = f'{cor_azul}{especulada[j]}{reset_cor}'
+            elif lista_posicao[j] == 1:
+                quadriculado[tentativas - i][j] = f'{cor_amarela}{especulada[j]}{reset_cor}'
+            elif lista_posicao[j] == 2:
+                quadriculado[tentativas - i][j] = f'{cor_cinza}{especulada[j]}{reset_cor}'
 
-      
-
-
-
-    
-
-
-
+        exibir_quadriculado(quadriculado)

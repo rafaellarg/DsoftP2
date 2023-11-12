@@ -58,6 +58,16 @@ def inidica_posicao(sorteada, especulada):
 
 
 
+def exibir_quadriculado(quadriculado):
+    linha_formatada = " ---" * len(quadriculado[0])
+    for linha in quadriculado:
+        print(linha_formatada)
+        print("| " + " | ".join(linha) + " |")
+    print(linha_formatada)
+
+
+
+
 
 
 
